@@ -73,7 +73,7 @@ export default function Record() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (error) {
-      console.error('A problem occurred with your fetch operation: ', error);
+      console.error('A problem occurred adding or updating a record: ', error);
     } finally {
       setForm({ name: "", position: "", level: "" });
       navigate("/");
