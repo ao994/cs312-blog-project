@@ -1,3 +1,7 @@
+//import secrets
+import * as Secrets from 'secrets';
+
+//import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
