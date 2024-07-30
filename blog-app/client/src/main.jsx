@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import Home from "./components/Home";
-import Blog from "./components/Blog";
-import Search from "./components/Search";
+//import Blog from "./components/Blog";
+//import Search from "./components/Search";
 
 import "./index.css";
 
@@ -22,26 +22,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "/blog",
-    element: <App />,
-    children: [
-      {
-        path: "/blog",
-        element: <Blog />,
-      },
-    ],
-  },
-  {
-    path: "/search",
-    element: <App />,
-    children: [
-      {
-        path: "/search",
-        element: <Search />,
-      },
-    ],
-  },
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

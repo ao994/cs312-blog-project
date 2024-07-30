@@ -1,16 +1,6 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
-
-//Test Records object
-const recordSchema = new Schema({
-    name: String,
-    position: String,
-    level: String
-});
-
-const Record = mongoose.model('Record', recordSchema);
-
 //user object
 const userSchema = new Schema({
     username: String,
@@ -19,19 +9,18 @@ const userSchema = new Schema({
     lName: String
 });
 
-const User = mongoose.model('User', userSchema);
+export const User = mongoose.model('User', userSchema);
 
 //post object
 const postSchema = new Schema({
-  title: String,
-  author: { type: userSchema, default: {} },
-  body: String,
-  comments: [{ body: String, date: Date }],
-  date: { type: Date, default: Date.now },
-  hidden: Boolean
+    title: String,
+    author: String,
+    body: String,
+    date: { type: Date, default: Date.now },
+    tags: [{type: String, lowercase: true}]
 });
 
-const Post = mongoose.model('Post', postSchema);
+export const Post = mongoose.model('Post', postSchema);
 
 //blog object
 const blogSchema = new Schema({
@@ -40,11 +29,9 @@ const blogSchema = new Schema({
     blogAuthor: { type: userSchema, default: {} }
 });
   
-const Blog = mongoose.model('Blog', blogSchema);
-
-
+export const Blog = mongoose.model('Blog', blogSchema);
 
 
 
 //exports
-export {Record, User, Post, Blog};
+export default {User, Post, Blog};
