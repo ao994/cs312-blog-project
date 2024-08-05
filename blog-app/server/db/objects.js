@@ -3,10 +3,12 @@ const { Schema } = mongoose;
 
 //user object
 const userSchema = new Schema({
-    username: String,
+    username: {type: String, unique: true},
     password: String,
     fName: String,
-    lName: String
+    lName: String,
+    blogTitle: String,
+    blogDescription: String
 });
 
 export const User = mongoose.model('User', userSchema);
@@ -22,16 +24,6 @@ const postSchema = new Schema({
 
 export const Post = mongoose.model('Post', postSchema);
 
-//blog object
-const blogSchema = new Schema({
-    blogTitle: String,
-    blogDescription: String,
-    blogAuthor: { type: userSchema, default: {} }
-});
-  
-export const Blog = mongoose.model('Blog', blogSchema);
-
-
 
 //exports
-export default {User, Post, Blog};
+export default {User, Post};

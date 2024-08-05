@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -24,6 +26,7 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "postcss": "^8.4.40",
     "react-router-dom": "^6.25.1",
+    "sass": "^1.77.8",
     "tailwindcss": "^3.4.7",
     "vite": "^5.3.4"
   }
