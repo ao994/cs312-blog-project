@@ -8,7 +8,7 @@ const App = (user) => {
   return (
     <div className="w-full p-6">
       <Header 
-        user={sessionStorage.getItem("username") || ""}
+        username={sessionStorage.getItem("username") || ""}
       />
       <Outlet />
       <Footer />

@@ -15,7 +15,7 @@ import './scss/styles.scss';
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap';
 
-//import Blog from "./components/Blog";
+import Blog from "./components/Blog";
 //import Search from "./components/Search";
 
 import "./index.css";
@@ -46,6 +46,19 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+    ],
+  },
+  {
+    path: "/:username",
+    element: <App />,
+    //loader: async () => {
+    //  return fakeDb.from("teams").select("*");
+    //},
+    children: [
+      {
+        path: "/:username",
+        element: <Blog />,
       },
     ],
   },

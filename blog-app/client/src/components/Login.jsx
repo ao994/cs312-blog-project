@@ -1,5 +1,5 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 function Login() {
     const [user, setUser] = useState({
@@ -22,8 +22,7 @@ function Login() {
         e.preventDefault();
         console.log(user.username, user.password);
 
-        sessionStorage.setItem("username",
-            user.username
+        sessionStorage.setItem("username", user.username
         );
         setUser("","");
     };

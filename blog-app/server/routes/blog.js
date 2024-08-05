@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 
 //This sends the user info to the blog page
 router.get("/:username", async (req, res) => {
-  User.findOne(req.params.username).then(function(result){
+  User.findOne({username: req.params.username}).then(function(result){
     if (!result) res.send("Not found").status(404);
     else res.send(result).status(200);
   });
@@ -26,7 +26,7 @@ router.get("/:username", async (req, res) => {
 
 //This sends the user info to the blog page
 router.get("/:username/posts", async (req, res) => {
-  Post.find(req.params.username).then(function(results){
+  Post.find({author: req.params.username}).then(function(results){
     if (!results) res.send("Not found").status(404);
     else res.send(results).status(200);
   });

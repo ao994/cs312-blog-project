@@ -21,7 +21,7 @@ function Header(props) {
                 <li>
                   <NavLink 
                     className="nav-link px-2"
-                    to={`/${props.user.username}`}
+                    to={`/${props.username}`}
                   >
                     My Profile
                   </NavLink>
@@ -49,7 +49,7 @@ function Header(props) {
             <div className="col-md-3 text-end">
               <NavLink to={`/login`}>
               <button type="button" className="btn btn-outline-primary me-2">
-                Login
+              {!(sessionStorage.length == 0) ? (<>Logout</>) : (<>Login</>)}
               </button>
               </NavLink>
               <button type="button" className="btn btn-primary">
