@@ -37,6 +37,23 @@ router.post("/login", async (req, res) => {
 
 });
 
+router.post("/:username", async (req, res) => {
+  const newPost = new Post({
+    title: req.body.title,
+    author: req.body.author,
+    body: req.body.body,
+    tags: req.body.tags
+  });
+
+  newPost.save().then(function(result){
+    if (!result) {
+      console.error(err);
+      res.status(500).send("Error creating post.");
+    }
+      else res.send("Post created.").status(204);
+  });
+});
+
 
 
 

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-function Login() {
+
+export default function Login() {
     const [user, setUser] = useState({
         username: "",
         password: ""
@@ -25,6 +26,7 @@ function Login() {
         sessionStorage.setItem("username", user.username
         );
         setUser("","");
+        location.reload();
     };
 
     const logout = () => {
@@ -71,4 +73,3 @@ function Login() {
     );
 }
 
-export default Login;

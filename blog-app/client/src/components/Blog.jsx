@@ -3,9 +3,15 @@ import { useParams, useNavigate } from "react-router-dom";
 import Post from "./Post";
 
 
-export default function Home() {
+export default function Blog() {
     const [posts, setPosts] = useState([]);
     const [user, setUser] = useState("");
+    const [newPost, setNewPost] = useState({
+        title: "",
+        author: "",
+        body: "",
+        tags: [],
+    });
 
     //get username from url
     const params = useParams();
@@ -24,6 +30,7 @@ export default function Home() {
             const posts = await response.json();
             setPosts(posts);
         }
+        //this fetches the users info from the database.
         async function getUser() {
             const username = params.username?.toString() || undefined;
             if(!username) return;
@@ -64,7 +71,16 @@ export default function Home() {
                 />
             );
         });
-    }    
+    }   
+    
+    //creating a new post
+    
+      
+
+
+
+
+
     
     return (
         <div>
