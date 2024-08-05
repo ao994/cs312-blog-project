@@ -1,57 +1,63 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-function Header() {
+function Header(props) {
   return (
     <>
-      <head>
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../App.css" />
-      </head>
-
-      <body>
         <div id="flex-container">
-          <header class="d-flex flex-wrap justify-content-end justify-content-md-between py-3 mb-4 border-bottom">
-            <div class="col-md-3 mb-2 mb-md-0">
-              <a
-                href="/"
-                class="d-inline-flex link-body-emphasis text-decoration-none"
-              ></a>
+          <header className="d-flex flex-wrap justify-content-end justify-content-md-between py-3 mb-4 border-bottom">
+            <div className="col-md-3 mb-2 mb-md-0">
+              <NavLink
+                className="d-inline-flex link-body-emphasis text-decoration-none"
+                to={`/`}
+              >
+                Home
+              </NavLink>
             </div>
 
             <div>
-              <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+              <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+              {!(sessionStorage.length == 0) ? (
                 <li>
-                  <a href="#" class="nav-link px-2">
+                  <NavLink 
+                    className="nav-link px-2"
+                    to={`/${props.user.username}`}
+                  >
                     My Profile
-                  </a>
+                  </NavLink>
                 </li>
+              ) : (<> </>)}
                 <li>
-                  <a href="#" class="nav-link px-2">
+                  <NavLink 
+                    className="nav-link px-2"
+                    to={`/`}
+                  >
                     Discover
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="#" class="nav-link px-2">
+                  <NavLink 
+                    className="nav-link px-2"
+                    to={`/`}
+                  >
                     About
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </div>
 
-            <div class="col-md-3 text-end">
-              <button type="button" class="btn btn-outline-primary me-2">
+            <div className="col-md-3 text-end">
+              <NavLink to={`/login`}>
+              <button type="button" className="btn btn-outline-primary me-2">
                 Login
               </button>
-              <button type="button" class="btn btn-primary">
+              </NavLink>
+              <button type="button" className="btn btn-primary">
                 Sign-up
               </button>
             </div>
           </header>
         </div>
-      </body>
     </>
   );
 }
