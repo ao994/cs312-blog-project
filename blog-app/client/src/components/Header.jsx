@@ -49,12 +49,17 @@ function Header(props) {
             <div className="col-md-3 text-end">
               <NavLink to={`/login`}>
               <button type="button" className="btn btn-outline-primary me-2">
-              {!(sessionStorage.username) ? (<>Logout</>) : (<>Login</>)}
+              {(sessionStorage.username) ? (<>Logout</>) : (<>Login</>)}
               </button>
               </NavLink>
-              <button type="button" className="btn btn-primary">
+
+              {!(sessionStorage.username) ? (<>
+                <NavLink to={`/signup`}>
+                <button type="button" className="btn btn-primary">
                 Sign-up
               </button>
+              </NavLink>
+              </>) : (<></>)}
             </div>
           </header>
         </div>
