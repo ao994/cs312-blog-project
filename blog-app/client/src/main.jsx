@@ -7,6 +7,7 @@ import {
 
 import App from "./App";
 import Home from "./components/Home";
+import Blog from "./components/Blog";
 import Login from "./components/Login";
 
 // Import our custom CSS
@@ -14,8 +15,6 @@ import './scss/styles.scss';
 
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap';
-
-import Blog from "./components/Blog";
 //import Search from "./components/Search";
 
 import "./index.css";

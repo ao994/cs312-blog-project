@@ -48,9 +48,9 @@ router.post("/:username", async (req, res) => {
   newPost.save().then(function(result){
     if (!result) {
       console.error(err);
-      res.status(500).send("Error creating post.");
+      res.status(500).send(err);
     }
-      else res.send("Post created.").status(204);
+      else res.sendStatus(204);
   });
 });
 

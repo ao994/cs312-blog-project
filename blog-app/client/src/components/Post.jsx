@@ -7,7 +7,7 @@ function Post(props) {
       <h3>{props.author}</h3>
       <h4>{props.date}</h4>
       <p>{props.body}</p>
-      <ul>{props.tags.map(tag => <>#{tag} </>)}</ul>
+      <ul>{props.tags.map(tag => <li key={tag}>#{tag} </li>)}</ul>
     </div>
   );
 }
