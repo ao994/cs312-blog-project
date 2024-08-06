@@ -9,16 +9,18 @@ import App from "./App";
 import Home from "./components/Home";
 import Blog from "./components/Blog";
 import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import Search from "./components/Search";
 
 // Import our custom CSS
 import './scss/styles.scss';
 
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap';
-//import Search from "./components/Search";
+
 
 import "./index.css";
-import SignUp from "./components/SignUp";
+
 
 const router = createBrowserRouter([
   {
@@ -44,16 +46,6 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/:username",
-    element: <App />,
-    children: [
-      {
-        path: "/:username",
-        element: <Blog />,
-      },
-    ],
-  },
-  {
     path: "/signup",
     element: <App />,
     children: [
@@ -63,6 +55,27 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/search",
+    element: <App />,
+    children: [
+      {
+        path: "/search",
+        element: <Search />,
+      },
+    ],
+  },
+  {
+    path: "/:username",
+    element: <App />,
+    children: [
+      {
+        path: "/:username",
+        element: <Blog />,
+      },
+    ],
+  },
+  
   
 ]);
 

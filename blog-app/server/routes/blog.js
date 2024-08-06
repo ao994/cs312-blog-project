@@ -15,23 +15,37 @@ router.get("/", async (req, res) => {
   Post.find({}).then(function(results){res.send(results).status(200);});
 });
 
-//This sends the user info to the blog page
-router.get("/:username", async (req, res) => {
-  User.findOne({username: req.params.username}).then(function(result){
-    if (!result) res.send("Not found").status(404);
-    else res.send(result).status(200);
-  });
+//This sends the info to the search page
+router.get("/search", async (req, res) => {
+  if (req.params.type == "posts") 
+  { 
+    Post.find({$or: [{body: /req.params.content/i}, {title: /req.params.content/i}]}).then(function(results){
+      if (!results) res.status(404).send("No posts found");
+      else res.send(results).status(200);
+    });
+  }
+  else if (req.params.type == "tags")
+  {
+    Post.find({tags: req.params.content}).then(function(results){
+      if (!results) res.status(404).send("No tags found");
+      else res.send(results).status(200);
+    });
+  }
+  else if (req.params.type == "users")
+  {
+    User.find(req.params.content).then(function(results){
+      if (!results) res.status(404).send("No users found");
+      else res.send(results).status(200);
+    });
+  }
+  else 
+  {
+    res.status(404).send("Nothing found, fatal error")
+  }
   
 });
 
-//This sends the user info to the blog page
-router.get("/:username/posts", async (req, res) => {
-  Post.find({author: req.params.username}).then(function(results){
-    if (!results) res.send("Not found").status(404);
-    else res.send(results).status(200);
-  });
-  
-});
+
 
 router.post("/signup", async (req, res) => {
   const newUser = new User({
@@ -50,6 +64,24 @@ router.post("/signup", async (req, res) => {
     }
       else res.sendStatus(204);
   });
+});
+
+//This sends the user info to the blog page
+router.get("/:username", async (req, res) => {
+  User.findOne({username: req.params.username}).then(function(result){
+    if (!result) res.send("No users  found").status(404);
+    else res.send(result).status(200);
+  });
+  
+});
+
+//This sends the user info to the blog page
+router.get("/:username/posts", async (req, res) => {
+  Post.find({author: req.params.username}).then(function(results){
+    if (!results) res.send("No users found").status(404);
+    else res.send(results).status(200);
+  });
+  
 });
 
 router.post("/:username", async (req, res) => {
