@@ -54,8 +54,10 @@ export default function Blog() {
     function headerInfo() {
         return (
             <>
+            <div className="blogHeader">  
             <h1>{user.blogTitle}</h1>
             <p>{user.blogDescription}</p>
+            </div>
             </>
         )
     }
@@ -63,6 +65,8 @@ export default function Blog() {
     function postList() {
         return posts.map((post) => {
             return (
+                <>
+                <div className="blogInfo"> 
                 <Post
                   key={post._id}
                   id={post._id}
@@ -72,6 +76,8 @@ export default function Blog() {
                   body={post.body}
                   tags={post.tags}
                 />
+                </div>
+                </>
             );
         });
     }   
@@ -134,7 +140,8 @@ export default function Blog() {
 
     function addNewTags() {
         return(
-        <div>
+        <div className="newTag">
+        <div className="d-flex" >
             <input
                 type="text"
                 placeholder="add tag"
@@ -144,6 +151,7 @@ export default function Blog() {
             <button onClick={handleClick}>
                 Add
             </button>
+        </div>
             <h3>Current Tags:</h3>
             <ul>
             {newTags.map(tag => (
@@ -155,7 +163,7 @@ export default function Blog() {
                         newTags.splice((index, 1))
                     );
                 }}>
-                Delete
+                ✗
                 </button>
             </li>
             ))}
@@ -168,7 +176,7 @@ export default function Blog() {
         return (<>
             <form
             action=""
-            className=""
+            className="newPost"
             >
                 <input
                     type="text"
@@ -198,11 +206,6 @@ export default function Blog() {
         </>)
     };
       
-      
-
-
-
-
 
     
     return (

@@ -5,18 +5,21 @@ function Header(props) {
   return (
     <>
         <div id="flex-container">
-          <header className="d-flex flex-wrap justify-content-end justify-content-md-between py-3 mb-4 border-bottom">
-            <div className="col-md-3 mb-2 mb-md-0">
-              <NavLink
-                className="d-inline-flex link-body-emphasis text-decoration-none"
+          <header className="d-flex flex-wrap justify-content-end justify-content-right py-3 mb-4 border-bottom">
+            <div>
+            <div className="nav col-12 col-md-auto mb-2 justify-content-right mb-md-0">
+            <NavLink
+                className="nav-link px-2"
                 to={`/`}
               >
                 Home
               </NavLink>
             </div>
+              
+            </div>
 
             <div>
-              <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+              <ul className="nav col-12 col-md-auto mb-2 justify-content-right mb-md-0">
               {(sessionStorage.username) ? (
                 <li>
                   <NavLink 
@@ -30,9 +33,9 @@ function Header(props) {
                 <li>
                   <NavLink 
                     className="nav-link px-2"
-                    to={`/search`}
+                    to={`/`}
                   >
-                    Search
+                    Discover
                   </NavLink>
                 </li>
                 <li>
@@ -46,7 +49,7 @@ function Header(props) {
               </ul>
             </div>
 
-            <div className="col-md-3 text-end">
+            <div className="text-end">
               <NavLink to={`/login`}>
               <button type="button" className="btn btn-outline-primary me-2">
               {(sessionStorage.username) ? (<>Logout</>) : (<>Login</>)}

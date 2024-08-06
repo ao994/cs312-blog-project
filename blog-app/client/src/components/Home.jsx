@@ -26,7 +26,8 @@ export default function Home() {
     function postList() {
         return posts.map((post) => {
             return (
-                <Post
+                <> <div className="homepage"> 
+                 <Post
                   key={post._id}
                   id={post._id}
                   title={post.title}
@@ -35,6 +36,7 @@ export default function Home() {
                   body={post.body}
                   tags={post.tags}
                 />
+                </div></>
             );
         });
     }    
