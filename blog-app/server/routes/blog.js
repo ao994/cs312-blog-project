@@ -17,11 +17,11 @@ router.get("/", async (req, res) => {
 
 //This sends the info to the search page
 router.get("/search", async (req, res) => {
-  const type = req.params.type;
-  console.log(req.params);
+  const type = req.query.type;
+  console.log(req.query);
   if (type == "posts") 
   { 
-    Post.find({$or: [{body: /req.params.content/i}, {title: /req.params.content/i}]}).then(function(results){
+    Post.find(req.params.content).then(function(results){
       if (!results) res.status(404).send("No posts found");
       else res.send(results).status(200);
     });
