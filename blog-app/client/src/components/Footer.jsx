@@ -5,7 +5,7 @@ function Footer() {
     const year = date.getFullYear();
     return (
       <>
-        <footer>
+        <footer className="fixed-bottom">
           <p>@ Blog App {year}</p>
         </footer>
       </>
