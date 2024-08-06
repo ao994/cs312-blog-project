@@ -33,8 +33,23 @@ router.get("/:username/posts", async (req, res) => {
   
 });
 
-router.post("/login", async (req, res) => {
+router.post("/signup", async (req, res) => {
+  const newUser = new User({
+    username: req.body.username,
+    password: req.body.password,
+    fName: req.body.fName,
+    lName: req.body.lName,
+    blogTitle: req.body.blogTitle,
+    blogDescription: req.body.blogDescription
+  });
 
+  newUser.save().then(function(result){
+    if (!result) {
+      console.error(err);
+      res.status(500).send(err);
+    }
+      else res.sendStatus(204);
+  });
 });
 
 router.post("/:username", async (req, res) => {
@@ -53,6 +68,7 @@ router.post("/:username", async (req, res) => {
       else res.sendStatus(204);
   });
 });
+
 
 
 

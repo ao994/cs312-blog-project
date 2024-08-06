@@ -18,6 +18,7 @@ import * as bootstrap from 'bootstrap';
 //import Search from "./components/Search";
 
 import "./index.css";
+import SignUp from "./components/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -25,9 +26,6 @@ const router = createBrowserRouter([
     element: <App 
       user={localStorage.getItem("username")}
     />,
-    //loader: async () => {
-    //  return fakeDb.from("teams").select("*");
-    //},
     children: [
       {
         path: "/",
@@ -38,9 +36,6 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <App />,
-    //loader: async () => {
-    //  return fakeDb.from("teams").select("*");
-    //},
     children: [
       {
         path: "/login",
@@ -51,13 +46,20 @@ const router = createBrowserRouter([
   {
     path: "/:username",
     element: <App />,
-    //loader: async () => {
-    //  return fakeDb.from("teams").select("*");
-    //},
     children: [
       {
         path: "/:username",
         element: <Blog />,
+      },
+    ],
+  },
+  {
+    path: "/signup",
+    element: <App />,
+    children: [
+      {
+        path: "/signup",
+        element: <SignUp />,
       },
     ],
   },
