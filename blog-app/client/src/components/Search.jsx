@@ -9,42 +9,35 @@ export default function Search() {
     const [posts, setPosts] = useState([]);
     const [users, setUsers] = useState([]);
     const [searchType, setSearchType] = useState("posts");
-    const [searchField, setSearchField] = useState("");
+    const [searchField, setSearchField] = useState(" ");
 
     // This method fetches the records from the database.
     useEffect(() => {
         async function getPosts() {
-            axios.get(`http://localhost:5050/blog/search`, {
-                params: {
-                  content: searchField,
-                  type: searchType
-                }
-              })
-              .then(function (response) {
-                console.log(response);
-                if (response) {
-                    setPosts(response.json());
-                  }
-                
-              })
-              .catch(function (error) {
-                console.log(error);
-              })
+            const response = await fetch(`http://localhost:5050/blog/search?` + new URLSearchParams({
+                content: searchField,
+                type: searchType,
+            }).toString());
+            if (!response.ok) {
+                const message = `An error occurred: ${response.statusText}`;
+                console.error(message);
+                return;
+            }
+            const postsList = await response.json();
+            setPosts(postsList);
         }
         async function getUsers() {
-            axios.get(`http://localhost:5050/blog/search`, {
-                params: {
-                  content: searchField,
-                  type: searchType
-                }
-              })
-              .then(function (response) {
-                console.log(response);
-                setUsers(response);
-              })
-              .catch(function (error) {
-                console.log(error);
-              })
+            const response = await fetch(`http://localhost:5050/blog/search?` + new URLSearchParams({
+                content: searchField,
+                type: searchType,
+            }).toString());
+            if (!response.ok) {
+                const message = `An error occurred: ${response.statusText}`;
+                console.error(message);
+                return;
+            }
+            const usersList = await response.json();
+            setUsers(usersList);
         }
         if (searchType == "posts")
         {
