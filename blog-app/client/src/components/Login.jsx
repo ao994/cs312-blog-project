@@ -38,7 +38,7 @@ export default function Login() {
 
         <div style={{ textAlign: "center" }}>
             <h1>Login page </h1>
-            {(sessionStorage.length == 0) ? (
+            {(!sessionStorage.username) ? (
                 <form action="">
                     <input
                         type="text"

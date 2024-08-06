@@ -17,7 +17,7 @@ function Header(props) {
 
             <div>
               <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-              {!(sessionStorage.length == 0) ? (
+              {(sessionStorage.username) ? (
                 <li>
                   <NavLink 
                     className="nav-link px-2"
@@ -49,7 +49,7 @@ function Header(props) {
             <div className="col-md-3 text-end">
               <NavLink to={`/login`}>
               <button type="button" className="btn btn-outline-primary me-2">
-              {!(sessionStorage.length == 0) ? (<>Logout</>) : (<>Login</>)}
+              {!(sessionStorage.username) ? (<>Logout</>) : (<>Login</>)}
               </button>
               </NavLink>
               <button type="button" className="btn btn-primary">
