@@ -209,7 +209,8 @@ export default function Blog() {
         <div>
             {headerInfo()}
             {postList()}
-            {addNewPost()}
+            {(sessionStorage.username == params.username?.toString()) ? (<>{addNewPost()}</>) : (<></>)}
+            
         </div>
     );
 }
