@@ -36,8 +36,8 @@ export default function Login() {
 
     return (
 
-        <div style={{ textAlign: "center" }}>
-            <h1>Login page </h1>
+        <div className="login">
+            <h1>Login Page</h1>
             {(!sessionStorage.username) ? (
                 <form action="">
                     <input
@@ -65,7 +65,7 @@ export default function Login() {
                 <>
                     <h1>User is logged in</h1>
                     <button onClickCapture={logout}>
-                        logout user
+                        Logout User
                     </button>
                 </>
             )}
