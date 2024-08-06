@@ -8,6 +8,7 @@ function UserResult(props) {
       <h4>{props.blogTitle}</h4>
       <p>{props.blogDescription}</p>
     </div>
+    
   );
 }
 

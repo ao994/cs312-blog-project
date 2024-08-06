@@ -17,21 +17,23 @@ router.get("/", async (req, res) => {
 
 //This sends the info to the search page
 router.get("/search", async (req, res) => {
-  if (req.params.type == "posts") 
+  const type = req.params.type;
+  console.log(req.params);
+  if (type == "posts") 
   { 
     Post.find({$or: [{body: /req.params.content/i}, {title: /req.params.content/i}]}).then(function(results){
       if (!results) res.status(404).send("No posts found");
       else res.send(results).status(200);
     });
   }
-  else if (req.params.type == "tags")
+  else if (type == "tags")
   {
     Post.find({tags: req.params.content}).then(function(results){
       if (!results) res.status(404).send("No tags found");
       else res.send(results).status(200);
     });
   }
-  else if (req.params.type == "users")
+  else if (type == "users")
   {
     User.find(req.params.content).then(function(results){
       if (!results) res.status(404).send("No users found");

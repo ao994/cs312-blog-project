@@ -22,7 +22,7 @@ export default function Blog() {
     // This method fetches the users posts from the database.
     useEffect(() => {
         async function getPosts() {
-            const username = params.username?.toString() || undefined;
+            const username = params.username?.toString() || null;
             if(!username) return;
             const response = await fetch(`http://localhost:5050/blog/${params.username.toString()}/posts`);
             if (!response.ok) {
@@ -35,7 +35,7 @@ export default function Blog() {
         }
         //this fetches the users info from the database.
         async function getUser() {
-            const username = params.username?.toString() || undefined;
+            const username = params.username?.toString() || null;
             if(!username) return;
             const response = await fetch(`http://localhost:5050/blog/${params.username.toString()}`);
             if (!response.ok) {
