@@ -30,9 +30,9 @@ function Header(props) {
                 <li>
                   <NavLink 
                     className="nav-link px-2"
-                    to={`/`}
+                    to={`/search`}
                   >
-                    Discover
+                    Search
                   </NavLink>
                 </li>
                 <li>
