@@ -193,3 +193,27 @@
 .login input {
   text-align: center;
 }
+
+.searchBarHeader h2 {
+  font-weight: bolder;
+}
+
+.user {
+  font-weight: bolder;
+  text-align: center;
+}
+
+
+.searchOptions fieldset {
+  background-color: #eeeeee;
+}
+
+.searchOptions legend {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+}
+
+.searchOptions input {
+  margin: 5px;
+}
