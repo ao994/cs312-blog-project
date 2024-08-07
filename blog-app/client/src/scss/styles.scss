@@ -196,6 +196,8 @@
 
 .searchBarHeader h2 {
   font-weight: bolder;
+  font-size: 32px;
+  padding: 5px;
 }
 
 .user {
@@ -204,16 +206,64 @@
 }
 
 
-.searchOptions fieldset {
+.searchOptions {
   background-color: #eeeeee;
+  border-radius: 7px;
+  margin: 32px;
 }
 
 .searchOptions legend {
-  background-color: gray;
+  background-color:  #4cab94;
   color: white;
   padding: 5px 10px;
+  text-align: center;
+  border-radius: 7px;
 }
 
 .searchOptions input {
   margin: 5px;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.searchOptions input[type='radio'] {
+  box-sizing: border-box;
+  appearance: none;
+  background: white;
+  outline: 2px solid #333;
+  border: 3px solid white;
+  border-radius: 2px;
+  width: 16px;
+  height: 16px;
+  margin: 7px;
+}
+
+.searchOptions input[type='radio']:checked {
+  background: #333;
+}
+
+.searchBar {
+  border: #000000;
+  border-radius: 7px;
+  outline: solid;
+}
+
+.newUser input {
+  text-align: center;
+}
+
+.newUser input[type=submit] {
+  background-color:  #e3e3e3;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.newUser input[type=submit]:hover {
+  background-color: #4cab94;
+  outline: #000000;
+  outline-width: 1px;
+  border: solid;
+  border-width: 1px;
+  color: #fff;
 }
