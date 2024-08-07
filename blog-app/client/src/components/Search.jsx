@@ -59,10 +59,10 @@ export default function Search() {
 
     function searchBar() {
         return (<>
-            <div className="">
+            <div className="searchBarHeader">
                 <h2 className="">Search Users, Posts, or Tags</h2>
             </div>
-            <div className="">
+            <div className="searchOptions">
             <fieldset>
             <legend>Search Parameters</legend>
             <input type="radio" id="users" name="sParam" value="users" checked={searchType === "users"}  onChange={(e) => setSearchType(e.target.value)}/>
@@ -75,7 +75,7 @@ export default function Search() {
             <label htmlFor="tags">Tags</label>
         </fieldset>
                 <input 
-                className=""
+                className="searchBar"
                 type = "search" 
                 placeholder = "Search" 
                 onChange = {handleChange}
