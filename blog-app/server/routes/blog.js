@@ -18,24 +18,25 @@ router.get("/", async (req, res) => {
 //This sends the info to the search page
 router.get("/search", async (req, res) => {
   const type = req.query.type;
+  const content = req.query.content;
   console.log(req.query);
   if (type == "posts") 
   { 
-    Post.find(req.params.content).then(function(results){
+    Post.find({$or: [{body: { "$regex": content, "$options": "i" }}, {title: { "$regex": content, "$options": "i" }}]}).then(function(results){
       if (!results) res.status(404).send("No posts found");
       else res.send(results).status(200);
     });
   }
   else if (type == "tags")
   {
-    Post.find({tags: req.params.content}).then(function(results){
+    Post.find({tags: content}).then(function(results){
       if (!results) res.status(404).send("No tags found");
       else res.send(results).status(200);
     });
   }
   else if (type == "users")
   {
-    User.find(req.params.content).then(function(results){
+    User.find({$or: [{username: { "$regex": content, "$options": "i" }}, {fName: { "$regex": content, "$options": "i" }}, {lName: { "$regex": content, "$options": "i" }}, {blogTitle: { "$regex": content, "$options": "i" }}, {blogDescription: { "$regex": content, "$options": "i" }},]}).then(function(results){
       if (!results) res.status(404).send("No users found");
       else res.send(results).status(200);
     });
@@ -44,6 +45,7 @@ router.get("/search", async (req, res) => {
   {
     res.status(404).send("Nothing found, fatal error")
   }
+  
   
 });
 
