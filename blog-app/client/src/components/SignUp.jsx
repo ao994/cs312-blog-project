@@ -57,6 +57,7 @@ export default function SignUp() {
 
     function addNewUser() {
         return (<>
+        <div className="newUser">
             <form
             action=""
             className=""
@@ -73,7 +74,7 @@ export default function SignUp() {
                     type="password"
                     name="password"
                     className=""
-                    placeholder="password"
+                    placeholder="Password"
                     value={newUser.password}
                     onChange={handleChange}
                 /> 
@@ -112,11 +113,12 @@ export default function SignUp() {
                 <input
                     type="submit"
                     value="Create User"
-                    className="inline-flex items-center justify-center whitespace-nowrap text-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-slate-100 hover:text-accent-foreground h-9 rounded-md px-3 cursor-pointer mt-4"
+                    className="inline-flex whitespace-nowrap text-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-background hover:bg-slate-100 hover:text-accent-foreground h-9 rounded-md px-3 cursor-pointer mt-4"
                     onClick={createUser}
                 />
 
             </form>
+            </div>
         </>)
     };
       
